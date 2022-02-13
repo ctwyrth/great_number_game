@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Great Number Game</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        {% if failure: %}
+            <h1 class="title">You've LOST the GREAT NUMBER GAME!</h1>
+            <p class="instruct">The secret number was {{ number }}.</p>
+            <button class="btn" onclick="replay()">Replay</button>
+        {% elif winner == False: %}
+            <h1 class="title">Welcome to the GREAT NUMBER GAME!</h1>
+            <p class="instruct">A random whole number between 1 and 100 has been generated...</p>
+            <p class="instruct">Try guessing what the number is!</p>
+            {% if session['guess_count'] > 0 %}
+                <p class="instruct">You have made {{ session['guess_count'] }} guess(es)...</p>
+                <p class="instruct">...and your last guess was...</p>
+                {% if session['vary'] == 'too high': %}
+                    <div class="card too_high"><h3>TOO HIGH</h3></div>
+                    <p class="instruct">Guess again!</p>
+                {% else: %}
+                    <div class="card too_low"><h3>TOO LOW</h3></div>
+                    <p class="instruct">Guess again!</p>
+                {% endif %}
+            {% endif %}
+            <form action="/guess" method="post" class="make_guess">
+                <label for="guess" class="label-mg">Your guess: </label>
+                <input type="number" name="guess" class="guess_txt" autofocus required>
+                <input type="submit" value="Submit" class="btn">
+            </form>
+        {% else: %}
+            <h1 class="title">You've WON the GREAT NUMBER GAME!</h1>
+            <div class="card wider">
+                <h2>You found the secret number... {{ number }}</h2>
+                <h2>...in {{ count }} guesses!</h2>
+                <button class="btn" onclick="replay()">Replay</button>
+            </div>
+        {% endif %}
+    </div>
+
+    <script>
+        function replay() {
+            self.location = "/"
+        }
+    </script>
+</body>
+</html>

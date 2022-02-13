@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    margin-top: 1.5rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: azure;
+    box-shadow: 1px 0 5px black, -1px 0 5px black;
+    color: darkcyan;
+    width: 75%;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.title {
+    margin: 5% 0 2.5%;
+}
+
+.instruct {
+    margin: 1%;
+}
+
+.make_guess {
+    margin: 3.5% 0 2%;
+}
+
+.guess_txt {
+    line-height: 1.125rem;
+    padding: .125rem .25rem;
+    border-radius: 4px;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 250px;
+    border: 2px solid dimgray;
+    border-radius: 10px;
+}
+
+.too_high {
+    background-color: teal;
+    color: white;
+}
+
+.too_low {
+    background-color: white;
+    color: teal;
+}
+
+.wider {
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    padding: 25px;
+    background-color: chartreuse;
+    color: darkolivegreen;
+    text-align: center;
+}
+
+.btn {
+    background-color: darkcyan;
+    color: azure;
+    font-size: .85rem;
+    padding: .25rem .5rem;
+    border: 0;
+    border-radius: 2px;
+    margin-left: .75rem;
+    box-shadow: 2px 2px 4px dimgray;
+}
+
+.btn:hover {
+    background-color: lightcoral;
+}
+
+.label-mg {
+    margin-right: .75rem;
+}
